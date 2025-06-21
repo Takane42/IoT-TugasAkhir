@@ -253,17 +253,32 @@ function updateChart(suhu, kelembaban) {
 function checkBeepRules(suhu, kelembaban) {
     // Aturan Suhu
     if (suhu > 31) {
+        publishMessage('LED1_ON'); // Nyalakan LED 1
+        publishMessage('LED2_ON'); // Nyalakan LED 2
+        publishMessage('LED3_ON'); // Nyalakan LED 3
         playSound(3); // Beep 3x
     } else if (suhu >= 30 && suhu <= 31) {
+        publishMessage('LED1_ON'); // Nyalakan LED 1
+        publishMessage('LED2_ON'); // Nyalakan LED 2
+        publishMessage('LED3_OFF'); // Matikan LED 3
         playSound(2); // Beep 2x
     } else if (suhu > 29 && suhu < 30) {
+        publishMessage('LED1_ON'); // Nyalakan LED 1
+        publishMessage('LED2_OFF'); // Matikan LED 2
+        publishMessage('LED3_OFF'); // Matikan LED 3
         playSound(1); // Beep 1x
     }
 
     // Aturan Kelembaban
     if (kelembaban >= 70) {
+        publishMessage('LED1_ON'); // Nyalakan LED 1
+        publishMessage('LED2_ON'); // Nyalakan LED 2
+        publishMessage('LED3_ON'); // Nyalakan LED 3
         playSound(3); // Beep 3x
     } else if (kelembaban >= 60 && kelembaban < 70) {
+        publishMessage('LED1_ON'); // Nyalakan LED 1
+        publishMessage('LED2_OFF'); // Matikan LED 2
+        publishMessage('LED3_OFF'); // Matikan LED 3
         playSound(1); // Beep 1x
     }
 }
